@@ -1,0 +1,30 @@
+{
+  "name": "ecom-backend",
+  "version": "1.0.0",
+  "description": "Ecommerce demo app",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd -f ./src/configs/prod.env node --trace-warnings index.js",
+    "dev": "env-cmd -f ./src/configs/dev.env nodemon index.js",
+    "test": "env-cmd -f ./src/configs/test.env jest --watch --runInBand"
+  },
+  "keywords": [
+    "Ecommerce",
+    "cart",
+    "discounts"
+  ],
+  "author": "Ali Akbar K",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "joi": "^17.6.0",
+    "mariadb": "^2.5.5"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  }
+}
