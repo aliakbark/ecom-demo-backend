@@ -1,24 +1,28 @@
 const { productController } = require("../controllers/product-controller");
 const { database } = require("../configs");
 
-const repositories = require("../repositories");
-
 const productRoute = async (router, dbConfig, repositories) => {
-  console;
   const productControllerConn = await productController(repositories);
 
   router.get("/products", async (req, res) => {
     let dbConn;
-    let response;
+    const response = { status: "", message: "", data: null, error_type: "" };
     let status;
 
     try {
       status = 200;
       dbConn = await database.getDbConnection(dbConfig);
-      response = await productControllerConn.fetchProductList(dbConn);
+      let products = await productControllerConn.fetchProductList(dbConn);
+      if (products) {
+        response.data = products;
+        response.message = "Products successfully retreived.";
+        response.status = "success";
+      }
     } catch (e) {
       console.log(e);
       status = 400;
+      response.status = "error";
+      response.message = e?.message ?? "";
     } finally {
       if (dbConn) await dbConn.end();
     }
