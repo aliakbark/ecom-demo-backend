@@ -3,7 +3,7 @@ const { database } = require("../configs");
 
 const orderRoute = async (router, dbConfig, repositories) => {
   const orderControllerConn = await orderController(repositories);
-  router.post("/addtocart", async (req, res) => {
+  router.post("/api/addtocart", async (req, res) => {
     let dbConn;
     const response = { status: "", message: "", data: null, error_type: "" };
     let status;
@@ -36,7 +36,7 @@ const orderRoute = async (router, dbConfig, repositories) => {
     res.status(status).json(response);
   });
 
-  router.get("/cart/:userid", async (req, res) => {
+  router.get("/api/cart/:userid", async (req, res) => {
     let dbConn;
     const response = { status: "", message: "", data: null, error_type: "" };
     let status;
@@ -62,7 +62,7 @@ const orderRoute = async (router, dbConfig, repositories) => {
     res.status(status).json(response);
   });
 
-  router.delete("/cart/clearall", async (req, res) => {
+  router.delete("/api/cart/clearall", async (req, res) => {
     let dbConn;
     const response = { status: "", message: "", data: null, error_type: "" };
     let status;

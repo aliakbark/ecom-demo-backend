@@ -92,7 +92,7 @@ const orderController = async (repositories) => {
 
     return { appliedCartDiscounts, cartDiscount };
   }
-
+  ``;
   async function _getCartSummary(cartDetails) {
     let { appliedProdDiscounts, totalProdDiscount } =
       await _calculateProdDiscounts(cartDetails.cart_items);
@@ -167,6 +167,7 @@ const orderController = async (repositories) => {
     addToCart,
     clearCart,
     fetchCart,
+    getCartSummary: _getCartSummary,
   });
 };
 

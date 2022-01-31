@@ -26,9 +26,12 @@
     "mariadb": "^2.5.5"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "env-cmd": "^10.1.0",
     "jest": "^27.4.7",
     "nodemon": "^2.0.15",
+    "superagent": "^7.1.1",
     "supertest": "^6.2.2"
   }
 }

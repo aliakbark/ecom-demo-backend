@@ -4,7 +4,7 @@ const { database } = require("../configs");
 const productRoute = async (router, dbConfig, repositories) => {
   const productControllerConn = await productController(repositories);
 
-  router.get("/products", async (req, res) => {
+  router.get("/api/products", async (req, res) => {
     let dbConn;
     const response = { status: "", message: "", data: null, error_type: "" };
     let status;

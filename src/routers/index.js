@@ -13,7 +13,7 @@ let routes = (app, router, dbConfig, repositories) => {
   }
 
   router.get("/", async (req, res) => {
-    res.send("Hello World from Ecom demo app!");
+    res.status(200).send("Hello World from Ecom demo app!");
   });
 
   app.use(router);

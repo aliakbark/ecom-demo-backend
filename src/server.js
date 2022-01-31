@@ -5,10 +5,10 @@ const path = require("path");
 
 const initRoutes = require("./routers");
 
-const start = (port, dbConfig, repositories) => {
-  // Initializations
-  const app = express();
+// Initializations
+const app = express();
 
+const start = (port, dbConfig, repositories) => {
   // middleware
   const middleware = [
     express.json(),
@@ -46,4 +46,4 @@ const start = (port, dbConfig, repositories) => {
   });
 };
 
-module.exports = Object.assign({}, { start });
+module.exports = Object.assign({}, { start, app });
