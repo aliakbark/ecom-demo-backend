@@ -61,6 +61,32 @@ const orderRoute = async (router, dbConfig, repositories) => {
     }
     res.status(status).json(response);
   });
+
+  router.delete("/cart/clearall", async (req, res) => {
+    let dbConn;
+    const response = { status: "", message: "", data: null, error_type: "" };
+    let status;
+
+    try {
+      status = 200;
+      dbConn = await database.getDbConnection(dbConfig);
+      let userId = req.body.user_id;
+      let clearCart = await orderControllerConn.clearCart(dbConn, userId);
+      if (clearCart) {
+        response.data = clearCart;
+        response.message = "Cleared all products from cart.";
+        response.status = "success";
+      }
+    } catch (e) {
+      console.log(e);
+      status = 400;
+      response.status = "error";
+      response.message = e?.message ?? "";
+    } finally {
+      if (dbConn) await dbConn.end();
+    }
+    res.status(status).json(response);
+  });
 };
 
 module.exports = { orderRoute };

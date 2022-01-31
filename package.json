@@ -8,6 +8,10 @@
     "dev": "env-cmd -f ./src/configs/dev.env nodemon index.js",
     "test": "env-cmd -f ./src/configs/test.env jest --watch --runInBand"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliakbar-k8811/ecom-demo-backend.git"
+  },
   "keywords": [
     "Ecommerce",
     "cart",
